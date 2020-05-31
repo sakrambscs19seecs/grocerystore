@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-
 public class Main extends Application {
 
     double totalCost;
@@ -39,50 +38,50 @@ public class Main extends Application {
     Button btn_Receipt=new Button("Receipt");
 
     //Adding Check Boxes
-    CheckBox cb1=new CheckBox("Item1");
-    CheckBox cb2=new CheckBox("Item2");
-    CheckBox cb3=new CheckBox("Item3");
-    CheckBox cb4=new CheckBox("Item4");
-    CheckBox cb5=new CheckBox("Item5");
-    CheckBox cb6=new CheckBox("Item6");
-    CheckBox cb7=new CheckBox("Item7");
-    CheckBox cb8=new CheckBox("Item8");
-    CheckBox cb9=new CheckBox("Item9");
-    CheckBox cb10=new CheckBox("Item10");
-    CheckBox cb11=new CheckBox("Item11");
-    CheckBox cb12=new CheckBox("Item12");
-    CheckBox cb13=new CheckBox("Item13");
-    CheckBox cb14=new CheckBox("Item14");
-    CheckBox cb15=new CheckBox("Item15");
-    CheckBox cb16=new CheckBox("Item16");
-    CheckBox cb17=new CheckBox("Item17");
-    CheckBox cb18=new CheckBox("Item18");
-    CheckBox cb19=new CheckBox("Item19");
-    CheckBox cb20=new CheckBox("Item20");
+    static CheckBox cb1=new CheckBox("Oil/lire");
+    static CheckBox cb2=new CheckBox("Pasta");
+    static CheckBox cb3=new CheckBox("Rice/kg");
+    static CheckBox cb4=new CheckBox("Bread");
+    static CheckBox cb5=new CheckBox("Flour/kg");
+    static CheckBox cb6=new CheckBox("Butter/200g");
+    static CheckBox cb7=new CheckBox("Milk/litre");
+    static CheckBox cb8=new CheckBox("Eggs/12");
+    static CheckBox cb9=new CheckBox("Cheese/500g");
+    static CheckBox cb10=new CheckBox("Onions/kg");
+    static CheckBox cb11=new CheckBox("Garlic/250g");
+    static CheckBox cb12=new CheckBox("Pulses/kg");
+    static CheckBox cb13=new CheckBox("Salt/kg");
+    static CheckBox cb14=new CheckBox("Sugar/kg");
+    static CheckBox cb15=new CheckBox("Honey/200ml");
+    static CheckBox cb16=new CheckBox("Vinegar/litre");
+    static CheckBox cb17=new CheckBox("Cereal");
+    static CheckBox cb18=new CheckBox("Fish/kg");
+    static CheckBox cb19=new CheckBox("Mutton/kg");
+    static CheckBox cb20=new CheckBox("Beef/kg");
 
     //Adding Text Fields
-    TextField txt1=new TextField("0");
-    TextField txt2=new TextField("0");
-    TextField txt3=new TextField("0");
-    TextField txt4=new TextField("0");
-    TextField txt5=new TextField("0");
-    TextField txt6=new TextField("0");
-    TextField txt7=new TextField("0");
-    TextField txt8=new TextField("0");
-    TextField txt9=new TextField("0");
-    TextField txt10=new TextField("0");
-    TextField txt11=new TextField("0");
-    TextField txt12=new TextField("0");
-    TextField txt13=new TextField("0");
-    TextField txt14=new TextField("0");
-    TextField txt15=new TextField("0");
-    TextField txt16=new TextField("0");
-    TextField txt17=new TextField("0");
-    TextField txt18=new TextField("0");
-    TextField txt19=new TextField("0");
-    TextField txt20=new TextField("0");
+    static TextField txt1=new TextField("0");
+    static TextField txt2=new TextField("0");
+    static TextField txt3=new TextField("0");
+    static TextField txt4=new TextField("0");
+    static TextField txt5=new TextField("0");
+    static TextField txt6=new TextField("0");
+    static TextField txt7=new TextField("0");
+    static TextField txt8=new TextField("0");
+    static TextField txt9=new TextField("0");
+    static TextField txt10=new TextField("0");
+    static TextField txt11=new TextField("0");
+    static TextField txt12=new TextField("0");
+    static TextField txt13=new TextField("0");
+    static TextField txt14=new TextField("0");
+    static TextField txt15=new TextField("0");
+    static TextField txt16=new TextField("0");
+    static TextField txt17=new TextField("0");
+    static TextField txt18=new TextField("0");
+    static TextField txt19=new TextField("0");
+    static TextField txt20=new TextField("0");
 
-    TextField txtTotal=new TextField();
+    static TextField txtTotal=new TextField();
 
 
     Label lbl_Title=new Label("    Online Grocery Store    ");
@@ -107,8 +106,6 @@ public class Main extends Application {
         primaryStage.setHeight(700);
         primaryStage.setWidth(1300);
 
-        Label loginMsg=new Label("Login to Continue");
-        //loginScene=new Scene();
 
         //Set Buttons
         setButtons();
@@ -117,16 +114,32 @@ public class Main extends Application {
         setHBox();
 
         //set Check Boxes
-        setCheckBoxes();
+        setCheckBoxes_and_TextFields(cb1, txt1);
+        setCheckBoxes_and_TextFields(cb2, txt2);
+        setCheckBoxes_and_TextFields(cb3, txt3);
+        setCheckBoxes_and_TextFields(cb4, txt4);
+        setCheckBoxes_and_TextFields(cb5, txt5);
+        setCheckBoxes_and_TextFields(cb6, txt6);
+        setCheckBoxes_and_TextFields(cb7, txt7);
+        setCheckBoxes_and_TextFields(cb8, txt8);
+        setCheckBoxes_and_TextFields(cb9, txt9);
+        setCheckBoxes_and_TextFields(cb10, txt10);
+        setCheckBoxes_and_TextFields(cb11, txt11);
+        setCheckBoxes_and_TextFields(cb12, txt12);
+        setCheckBoxes_and_TextFields(cb13, txt13);
+        setCheckBoxes_and_TextFields(cb14, txt14);
+        setCheckBoxes_and_TextFields(cb15, txt15);
+        setCheckBoxes_and_TextFields(cb16, txt16);
+        setCheckBoxes_and_TextFields(cb17, txt17);
+        setCheckBoxes_and_TextFields(cb18, txt18);
+        setCheckBoxes_and_TextFields(cb19, txt19);
+        setCheckBoxes_and_TextFields(cb20, txt20);
 
         //Set Label
         setLabels();
 
         //set VBox
         setVBox();
-
-        //set Text Fields
-        setTextFields();
 
         //Set panes
         setPanes();
@@ -139,6 +152,8 @@ public class Main extends Application {
         ActionPerformed_CheckBoxes();
 
         shoppingScene=new Scene(root, 1300, 700);
+        //loginScene=LoginGUI.display();
+
         primaryStage.setScene(shoppingScene);
 
         primaryStage.show();
@@ -155,78 +170,15 @@ public class Main extends Application {
         btn_Receipt.setPrefWidth(100);
     }
 
-    public void setCheckBoxes(){
-        cb1.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb1.setPrefWidth(100);
-        cb1.setPrefHeight(20);
+    public void setCheckBoxes_and_TextFields(CheckBox cb, TextField txt){
 
-        cb2.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb2.setPrefWidth(100);
-        cb2.setPrefHeight(20);
+        cb.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
+        cb.setPrefWidth(100);
+        cb.setPrefHeight(20);
 
-        cb3.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb3.setPrefWidth(100);
-        cb3.setPrefHeight(20);
-
-        cb4.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb4.setPrefWidth(100);
-        cb4.setPrefHeight(20);
-
-        cb5.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb5.setPrefWidth(100);
-        cb5.setPrefHeight(20);
-
-        cb6.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb6.setPrefWidth(100);
-        cb6.setPrefHeight(20);
-
-        cb7.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb8.setPrefWidth(100);
-        cb9.setPrefHeight(20);
-
-        cb10.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb10.setPrefWidth(100);
-        cb10.setPrefHeight(20);
-
-        cb11.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb11.setPrefWidth(100);
-        cb11.setPrefHeight(20);
-
-        cb12.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb12.setPrefWidth(100);
-        cb12.setPrefHeight(20);
-
-        cb13.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb13.setPrefWidth(100);
-        cb13.setPrefHeight(20);
-
-        cb14.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb14.setPrefWidth(100);
-        cb14.setPrefHeight(20);
-
-        cb15.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb15.setPrefWidth(100);
-        cb15.setPrefHeight(20);
-
-        cb16.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb16.setPrefWidth(100);
-        cb16.setPrefHeight(20);
-
-        cb17.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb17.setPrefWidth(100);
-        cb17.setPrefHeight(20);
-
-        cb18.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb18.setPrefWidth(100);
-        cb18.setPrefHeight(20);
-
-        cb19.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb19.setPrefWidth(100);
-        cb19.setPrefHeight(20);
-
-        cb20.setStyle("-fx-font-weight: bold; -fx-font-size: 15; -fx-wrap-text: true");
-        cb20.setPrefWidth(100);
-        cb20.setPrefHeight(20);
+        txt.setPrefWidth(100);
+        txt.setPrefHeight(20);
+        txt.setDisable(true);
     }
 
     public void setLabels(){
@@ -303,91 +255,6 @@ public class Main extends Application {
         vb_Inputs2.setPrefWidth(250);
         vb_Inputs2.setSpacing(6);
         vb_Inputs2.setPadding(new Insets(10));
-    }
-
-    public void setTextFields() {
-        txt1.setPrefWidth(100);
-        txt1.setPrefHeight(20);
-        txt1.setDisable(true);
-
-        txt2.setPrefWidth(100);
-        txt2.setPrefHeight(20);
-        txt2.setDisable(true);
-
-        txt3.setPrefWidth(70);
-        txt3.setPrefHeight(20);
-        txt3.setDisable(true);
-
-        txt4.setPrefWidth(70);
-        txt4.setPrefHeight(20);
-        txt4.setDisable(true);
-
-        txt5.setPrefWidth(70);
-        txt5.setPrefHeight(20);
-        txt5.setDisable(true);
-
-        txt6.setPrefWidth(70);
-        txt6.setPrefHeight(20);
-        txt6.setDisable(true);
-
-        txt7.setPrefWidth(100);
-        txt7.setPrefHeight(20);
-        txt7.setDisable(true);
-
-        txt8.setPrefWidth(100);
-        txt8.setPrefHeight(20);
-        txt8.setDisable(true);
-
-        txt9.setPrefWidth(100);
-        txt9.setPrefHeight(20);
-        txt9.setDisable(true);
-
-        txt10.setPrefWidth(100);
-        txt10.setPrefHeight(20);
-        txt10.setDisable(true);
-
-        txt11.setPrefWidth(100);
-        txt11.setPrefHeight(20);
-        txt11.setDisable(true);
-
-        txt12.setPrefWidth(100);
-        txt12.setPrefHeight(20);
-        txt12.setDisable(true);
-
-        txt13.setPrefWidth(100);
-        txt13.setPrefHeight(20);
-        txt13.setDisable(true);
-
-        txt14.setPrefWidth(100);
-        txt14.setPrefHeight(20);
-        txt14.setDisable(true);
-
-        txt15.setPrefWidth(100);
-        txt15.setPrefHeight(20);
-        txt15.setDisable(true);
-
-        txt16.setPrefWidth(100);
-        txt16.setPrefHeight(20);
-        txt16.setDisable(true);
-
-        txt17.setPrefWidth(100);
-        txt17.setPrefHeight(20);
-        txt17.setDisable(true);
-
-        txt18.setPrefWidth(100);
-        txt18.setPrefHeight(20);
-        txt18.setDisable(true);
-
-        txt19.setPrefWidth(100);
-        txt19.setPrefHeight(20);
-        txt19.setDisable(true);
-
-        txt20.setPrefWidth(100);
-        txt20.setPrefHeight(20);
-        txt20.setDisable(true);
-
-
-        txtTotal.setEditable(false);
     }
 
     public void setPanes(){
@@ -474,20 +341,6 @@ public class Main extends Application {
                 itemCost.cost[3]=itemCost.ItemPrice[3] * Double.parseDouble(txt4.getText());
                 itemCost.cost[4]=itemCost.ItemPrice[4] * Double.parseDouble(txt5.getText());
                 itemCost.cost[5]=itemCost.ItemPrice[5] * Double.parseDouble(txt6.getText());
-                itemCost.cost[6]=itemCost.ItemPrice[6] * Double.parseDouble(txt7.getText());
-                itemCost.cost[7]=itemCost.ItemPrice[7] * Double.parseDouble(txt8.getText());
-                itemCost.cost[8]=itemCost.ItemPrice[8] * Double.parseDouble(txt9.getText());
-                itemCost.cost[9]=itemCost.ItemPrice[9] * Double.parseDouble(txt10.getText());
-                itemCost.cost[10]=itemCost.ItemPrice[10] * Double.parseDouble(txt11.getText());
-                itemCost.cost[11]=itemCost.ItemPrice[11] * Double.parseDouble(txt12.getText());
-                itemCost.cost[12]=itemCost.ItemPrice[12] * Double.parseDouble(txt13.getText());
-                itemCost.cost[13]=itemCost.ItemPrice[13] * Double.parseDouble(txt14.getText());
-                itemCost.cost[14]=itemCost.ItemPrice[14] * Double.parseDouble(txt15.getText());
-                itemCost.cost[15]=itemCost.ItemPrice[15] * Double.parseDouble(txt16.getText());
-                itemCost.cost[16]=itemCost.ItemPrice[16] * Double.parseDouble(txt17.getText());
-                itemCost.cost[17]=itemCost.ItemPrice[17] * Double.parseDouble(txt18.getText());
-                itemCost.cost[18]=itemCost.ItemPrice[18] * Double.parseDouble(txt19.getText());
-                itemCost.cost[19]=itemCost.ItemPrice[19] * Double.parseDouble(txt20.getText());
 
                 totalCost=itemCost.getTotal();
 
@@ -497,6 +350,13 @@ public class Main extends Application {
 
                 else
                     txtTotal.setText("Rs. "+String.valueOf(totalCost-previousAmount));
+            }
+        });
+
+        btn_Receipt.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                sample.Receipt_Window.display();
             }
         });
     }
@@ -511,7 +371,7 @@ public class Main extends Application {
     public void checkbox_Disable(TextField txt, CheckBox cb){
         if(cb.isSelected()==true){
             txt.setDisable(false);
-            txt.clear();
+            //txt.clear();
         }
 
         else
@@ -561,6 +421,7 @@ public class Main extends Application {
                 checkbox_Disable(txt6, cb6);
             }
         });
+
         cb7.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -652,4 +513,3 @@ public class Main extends Application {
         launch(args);
     }
 }
-
